@@ -1,0 +1,58 @@
+{{!-- templates/fishing-ui.hbs --}}
+
+<section class="fishing-ui">
+  <header class="fishing-header">
+    <h1 class="fishing-title">
+      {{localize "FishingMinigame.Title" default="Fishing"}}
+    </h1>
+    <p class="fishing-instructions">
+      {{localize "FishingMinigame.Instructions" default="Cast your line, then keep the fish inside the hook zone to fill the bar and land your catch."}}
+    </p>
+  </header>
+
+  <section class="fishing">
+    {{!-- Main play area --}}
+    <div class="fishing-main">
+      <div class="sea">
+        {{!-- Optional background / water layers can be styled purely via CSS --}}
+        <div class="sea-background"></div>
+
+        {{!-- Hook zone: the “sweet spot” you want the fish to overlap --}}
+        <div class="hook-zone">
+          <div class="hook"></div>
+        </div>
+
+        {{!-- Fish element: JS will move this up/down/around --}}
+        <div class="fish"></div>
+
+        {{!-- Bait / float indicator (if you want a “waiting for bite” state) --}}
+        <div class="bait" id="bait"></div>
+      </div>
+
+      {{!-- Progress bar on the side --}}
+      <div class="progress">
+        <div class="bar"></div>
+      </div>
+    </div>
+
+    {{!-- Status text for feedback (“Waiting…”, “A fish bites!”, etc.) --}}
+    <div class="fishing-status">
+      <span class="status-text">
+        {{localize "FishingMinigame.Status.Default" default="Cast your line to begin."}}
+      </span>
+    </div>
+
+    {{!-- Controls --}}
+    <footer class="fishing-controls">
+      <button type="button" class="cast-line">
+        <i class="fas fa-anchor"></i>
+        <span>{{localize "FishingMinigame.Button.Cast" default="Cast"}}</span>
+      </button>
+
+      <button type="button" class="reel-line" disabled>
+        <i class="fas fa-sync-alt"></i>
+        <span>{{localize "FishingMinigame.Button.Reel" default="Reel"}}</span>
+      </button>
+    </footer>
+  </section>
+</section>
