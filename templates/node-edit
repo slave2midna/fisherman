@@ -1,0 +1,119 @@
+{{!-- templates/node-edit.hbs --}}
+
+<form class="{{cssClass}} fishing-spot-sheet" autocomplete="off">
+  <header class="sheet-header">
+    <div class="header-fields">
+      <h1 class="page-title">
+        <input type="text"
+               name="name"
+               value="{{name}}"
+               placeholder="Fishing Spot Name"
+               data-dtype="String" />
+      </h1>
+
+      <div class="form-group">
+        <label>{{localize "Image"}}</label>
+        <div class="form-fields">
+          <input type="text"
+                 name="image"
+                 value="{{image}}"
+                 data-dtype="String"
+                 placeholder="{{localize 'FILES.BrowseFiles'}}" />
+          <button type="button"
+                  class="file-picker"
+                  data-type="image"
+                  data-target="image">
+            <i class="fas fa-file-import"></i>
+          </button>
+        </div>
+        <p class="notes">
+          Optional image to represent this fishing spot.
+        </p>
+      </div>
+    </div>
+  </header>
+
+  <section class="sheet-body">
+    <fieldset class="fishing-spot-config">
+      <legend>Fishing Results</legend>
+
+      <div class="form-group">
+        <label>Fish RollTable</label>
+        <div class="form-fields">
+          <input type="text"
+                 name="fishRolltableUUID"
+                 value="{{fishRolltableUUID}}"
+                 data-dtype="String"
+                 placeholder="RollTable ID or UUID" />
+        </div>
+        {{#if fishRolltable}}
+          <p class="hint">
+            Current: <strong>{{fishRolltable.name}}</strong>
+          </p>
+        {{/if}}
+        <p class="notes">
+          Table used for normal fish results.
+        </p>
+      </div>
+
+      <div class="form-group">
+        <label>Junk RollTable</label>
+        <div class="form-fields">
+          <input type="text"
+                 name="junkRolltableUUID"
+                 value="{{junkRolltableUUID}}"
+                 data-dtype="String"
+                 placeholder="RollTable ID or UUID" />
+        </div>
+        {{#if junkRolltable}}
+          <p class="hint">
+            Current: <strong>{{junkRolltable.name}}</strong>
+          </p>
+        {{/if}}
+        <p class="notes">
+          Table used on a bad catch (low roll).
+        </p>
+      </div>
+
+      <div class="form-group">
+        <label>Treasure RollTable</label>
+        <div class="form-fields">
+          <input type="text"
+                 name="treasureRolltableUUID"
+                 value="{{treasureRolltableUUID}}"
+                 data-dtype="String"
+                 placeholder="RollTable ID or UUID" />
+        </div>
+        {{#if treasureRolltable}}
+          <p class="hint">
+            Current: <strong>{{treasureRolltable.name}}</strong>
+          </p>
+        {{/if}}
+        <p class="notes">
+          Table used on a great catch (high roll).
+        </p>
+      </div>
+    </fieldset>
+
+    <fieldset class="fishing-spot-description">
+      <legend>Description</legend>
+      <div class="form-group stacked">
+        <label>Spot Description</label>
+        {{!--
+          data.text comes from:
+            data.text = data.document.text;
+          For text pages this is an object with .content, so we bind the editor
+          to text.content.
+        --}}
+        {{editor text.content
+                 target="text.content"
+                 button=true
+                 owner=owner
+                 editable=editable}}
+        <p class="notes">
+          Optional descriptive text shown to players when they view this fishing spot.
+        </p>
+      </div>
+    </fieldset>
+  </section>
+</form>
