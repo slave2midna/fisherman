@@ -1,60 +1,47 @@
 {
-  "name": "obligatory-fishing-minigame",
-  "title": "🎣 Obligatory Fishing Minigame",
-  "description": "Every game has one.",
-  "version": "This is auto replaced",
-  "library": "false",
-  "manifestPlusVersion": "1.0.0",
-  "compatibility": {
-    "minimum": 10,
-    "verified": 11
-  },
-  "authors": [
-    {
-      "name": "Cody Swendrowski",
-      "discord": "cswendrowski#9701",
-      "patreon": "ironmoose"
-    }
-  ],
-  "relationships": {
-    "required": [
-      {
-        "type": "module",
-        "name": "vueport"
-      },
-      {
-        "type": "module",
-        "name": "dlopen"
-      }
-    ]
-  },
-  "esmodules": [
-    "/scripts/module.js"
-  ],
-  "scripts": [
-  ],
-  "styles": [
-    "/css/module.css"
-  ],
-  "languages": [
-    {
-      "lang": "en",
-      "name": "English",
-      "path": "languages/en.json"
-    }
-  ],
-  "flags": {
-    "fvttdevleague": {
-        "package-jam": 2022
-    }
-  },
-  "url": "This is auto replaced",
-  "manifest": "This is auto replaced",
-  "download": "This is auto replaced",
-  "media": [
-    {
-      "type": "icon",
-      "url": "https://avatars2.githubusercontent.com/u/71292812?s=400&u=ccdb4eeb7abf551ca8f314e5a9bfd0479a4d3d41&v=4"
-    }
-  ]
+    "id": "fisherman",
+    "title": "Fishing Minigame",
+    "description": "An obligatory fishing minigame for your tabletop adventure.",
+    "version": "#{VERSION}#",
+    "library": false,
+    "compatibility": {
+        "minimum": "13",
+        "verified": "13"
+    },
+    "authors": [
+        {
+            "name": "Noamancy",
+            "url": "https://github.com/slave2midna"
+        }
+    ],
+    "relationships": {
+        "systems": [],
+        "requires": []
+    },
+    "esmodules": [
+        "scripts/init.js"
+    ],
+    "scripts": [],
+    "styles": [
+        "styles/module.css"
+    ],
+    "languages": [
+        {
+            "lang": "en",
+            "name": "English",
+            "path": "lang/en.json"
+        }
+    ],
+    "url": "#{URL}#",
+    "manifest": "#{MANIFEST}#",
+    "download": "#{DOWNLOAD}#",
+    "license": "MIT License",
+    "readme": "README.md",
+    "media": [
+        {
+            "type": "icon",
+            "url": "https://avatars2.githubusercontent.com/u/71292812?s=400&u=ccdb4eeb7abf551ca8f314e5a9bfd0479a4d3d41&v=4"
+        }
+    ],
+    "socket": true
 }
