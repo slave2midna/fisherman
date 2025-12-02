@@ -1,0 +1,67 @@
+{{!-- templates/journal/page-fishingspot-view.hbs --}}
+
+<section class="{{cssClass}} fishing-spot-view">
+  <header class="sheet-header">
+    <div class="header-fields">
+      <h1 class="page-title">
+        {{name}}
+      </h1>
+    </div>
+  </header>
+
+  <section class="sheet-body">
+    {{!-- Optional spot image --}}
+    {{#if image}}
+      <div class="fishing-spot-image">
+        <img src="{{image}}" alt="{{name}}" />
+      </div>
+    {{/if}}
+
+    {{!-- Description shown to players --}}
+    <div class="fishing-spot-description">
+      {{{text.content}}}
+    </div>
+
+    {{!-- Primary action: start the minigame --}}
+    <div class="fishing-spot-actions">
+      <button type="button" class="start-fishing">
+        <i class="fas fa-fish"></i>
+        <span>Start Fishing</span>
+      </button>
+    </div>
+
+    {{!-- GM-only info: which tables are configured --}}
+    {{#if owner}}
+      <section class="fishing-spot-meta">
+        <h3>Configured Tables</h3>
+
+        <ul>
+          <li>
+            <strong>Fish:</strong>
+            {{#if fishRolltable}}
+              {{fishRolltable.name}}
+            {{else}}
+              <em>Not configured</em>
+            {{/if}}
+          </li>
+          <li>
+            <strong>Junk:</strong>
+            {{#if junkRolltable}}
+              {{junkRolltable.name}}
+            {{else}}
+              <em>Not configured</em>
+            {{/if}}
+          </li>
+          <li>
+            <strong>Treasure:</strong>
+            {{#if treasureRolltable}}
+              {{treasureRolltable.name}}
+            {{else}}
+              <em>Not configured</em>
+            {{/if}}
+          </li>
+        </ul>
+      </section>
+    {{/if}}
+  </section>
+</section>
